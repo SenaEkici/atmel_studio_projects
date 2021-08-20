@@ -1,0 +1,287 @@
+
+TWI.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000190  00000224  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000190  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  00800102  00800102  00000226  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000226  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000258  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000058  00000000  00000000  00000298  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000008d7  00000000  00000000  000002f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000774  00000000  00000000  00000bc7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000396  00000000  00000000  0000133b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000094  00000000  00000000  000016d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003fc  00000000  00000000  00001768  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000005a  00000000  00000000  00001b64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000048  00000000  00000000  00001bbe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 36 00 	jmp	0x6c	; 0x6c <__ctors_end>
+   4:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+   8:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+   c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  10:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  14:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  18:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  1c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  20:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  24:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  28:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  2c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  30:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  34:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  38:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  3c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  40:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  44:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  48:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  4c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  50:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  54:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  58:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  5c:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  60:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  64:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+  68:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__bad_interrupt>
+
+0000006c <__ctors_end>:
+  6c:	11 24       	eor	r1, r1
+  6e:	1f be       	out	0x3f, r1	; 63
+  70:	cf ef       	ldi	r28, 0xFF	; 255
+  72:	d4 e0       	ldi	r29, 0x04	; 4
+  74:	de bf       	out	0x3e, r29	; 62
+  76:	cd bf       	out	0x3d, r28	; 61
+
+00000078 <__do_copy_data>:
+  78:	11 e0       	ldi	r17, 0x01	; 1
+  7a:	a0 e0       	ldi	r26, 0x00	; 0
+  7c:	b1 e0       	ldi	r27, 0x01	; 1
+  7e:	e0 e9       	ldi	r30, 0x90	; 144
+  80:	f1 e0       	ldi	r31, 0x01	; 1
+  82:	02 c0       	rjmp	.+4      	; 0x88 <__do_copy_data+0x10>
+  84:	05 90       	lpm	r0, Z+
+  86:	0d 92       	st	X+, r0
+  88:	a2 30       	cpi	r26, 0x02	; 2
+  8a:	b1 07       	cpc	r27, r17
+  8c:	d9 f7       	brne	.-10     	; 0x84 <__do_copy_data+0xc>
+
+0000008e <__do_clear_bss>:
+  8e:	21 e0       	ldi	r18, 0x01	; 1
+  90:	a2 e0       	ldi	r26, 0x02	; 2
+  92:	b1 e0       	ldi	r27, 0x01	; 1
+  94:	01 c0       	rjmp	.+2      	; 0x98 <.do_clear_bss_start>
+
+00000096 <.do_clear_bss_loop>:
+  96:	1d 92       	st	X+, r1
+
+00000098 <.do_clear_bss_start>:
+  98:	a4 30       	cpi	r26, 0x04	; 4
+  9a:	b2 07       	cpc	r27, r18
+  9c:	e1 f7       	brne	.-8      	; 0x96 <.do_clear_bss_loop>
+  9e:	0e 94 ae 00 	call	0x15c	; 0x15c <main>
+  a2:	0c 94 c6 00 	jmp	0x18c	; 0x18c <_exit>
+
+000000a6 <__bad_interrupt>:
+  a6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000aa <TWI_init>:
+char okunan;
+char sonbit;
+//TWI fonksiyonlarý
+void TWI_init()
+{
+	 TWBR=0X62;            //bit RATE HESAPLANDI.
+  aa:	82 e6       	ldi	r24, 0x62	; 98
+  ac:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__TEXT_REGION_LENGTH__+0x7e00b8>
+	 TWCR=(1<<TWINT);      //interruptlar enable edildi.
+  b0:	80 e8       	ldi	r24, 0x80	; 128
+  b2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	 TWSR=0X00;            //prescaler 1 olarak ayarlandý.
+  b6:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+  ba:	08 95       	ret
+
+000000bc <TWI_Start>:
+}
+
+void TWI_Start()
+{
+	TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);        //TWI interrupt flag-TWI start condition-TWI enable flagleri set edildi.
+  bc:	84 ea       	ldi	r24, 0xA4	; 164
+  be:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(!(TWCR &(1<<TWINT)));                    //interrupt gelene kadar bekle interrupt geldiðinde TWINT Flagi set olur.
+  c2:	ec eb       	ldi	r30, 0xBC	; 188
+  c4:	f0 e0       	ldi	r31, 0x00	; 0
+  c6:	80 81       	ld	r24, Z
+  c8:	88 23       	and	r24, r24
+  ca:	ec f7       	brge	.-6      	; 0xc6 <TWI_Start+0xa>
+	while((TWSR &(0XF8))!=0X08);
+  cc:	e9 eb       	ldi	r30, 0xB9	; 185
+  ce:	f0 e0       	ldi	r31, 0x00	; 0
+  d0:	80 81       	ld	r24, Z
+  d2:	88 7f       	andi	r24, 0xF8	; 248
+  d4:	88 30       	cpi	r24, 0x08	; 8
+  d6:	e1 f7       	brne	.-8      	; 0xd0 <TWI_Start+0x14>
+}
+  d8:	08 95       	ret
+
+000000da <TWI_Write_Add>:
+
+void TWI_Write_Add(char x)
+{
+	TWDR=x;
+  da:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+	TWCR=(1<<TWINT) | (1<< TWEN);
+  de:	84 e8       	ldi	r24, 0x84	; 132
+  e0:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(!(TWCR &(1<<TWINT)));   
+  e4:	ec eb       	ldi	r30, 0xBC	; 188
+  e6:	f0 e0       	ldi	r31, 0x00	; 0
+  e8:	80 81       	ld	r24, Z
+  ea:	88 23       	and	r24, r24
+  ec:	ec f7       	brge	.-6      	; 0xe8 <TWI_Write_Add+0xe>
+	while((TWSR &(0XF8))!=0X18);
+  ee:	e9 eb       	ldi	r30, 0xB9	; 185
+  f0:	f0 e0       	ldi	r31, 0x00	; 0
+  f2:	80 81       	ld	r24, Z
+  f4:	88 7f       	andi	r24, 0xF8	; 248
+  f6:	88 31       	cpi	r24, 0x18	; 24
+  f8:	e1 f7       	brne	.-8      	; 0xf2 <TWI_Write_Add+0x18>
+}
+  fa:	08 95       	ret
+
+000000fc <TWI_Write_Data>:
+void TWI_Write_Data(char x)
+{
+	TWDR=x;
+  fc:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+	TWCR=(1<<TWINT) | (1<< TWEN);
+ 100:	84 e8       	ldi	r24, 0x84	; 132
+ 102:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(!(TWCR &(1<<TWINT)));   
+ 106:	ec eb       	ldi	r30, 0xBC	; 188
+ 108:	f0 e0       	ldi	r31, 0x00	; 0
+ 10a:	80 81       	ld	r24, Z
+ 10c:	88 23       	and	r24, r24
+ 10e:	ec f7       	brge	.-6      	; 0x10a <TWI_Write_Data+0xe>
+	while((TWSR &(0XF8))!=0X28);
+ 110:	e9 eb       	ldi	r30, 0xB9	; 185
+ 112:	f0 e0       	ldi	r31, 0x00	; 0
+ 114:	80 81       	ld	r24, Z
+ 116:	88 7f       	andi	r24, 0xF8	; 248
+ 118:	88 32       	cpi	r24, 0x28	; 40
+ 11a:	e1 f7       	brne	.-8      	; 0x114 <TWI_Write_Data+0x18>
+}
+ 11c:	08 95       	ret
+
+0000011e <TWI_Read_Ack>:
+
+char TWI_Read_Ack()		
+{
+	TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWEA); 
+ 11e:	84 ec       	ldi	r24, 0xC4	; 196
+ 120:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(!(TWCR &(1<<TWINT)));   	
+ 124:	ec eb       	ldi	r30, 0xBC	; 188
+ 126:	f0 e0       	ldi	r31, 0x00	; 0
+ 128:	80 81       	ld	r24, Z
+ 12a:	88 23       	and	r24, r24
+ 12c:	ec f7       	brge	.-6      	; 0x128 <TWI_Read_Ack+0xa>
+	return TWDR;			
+ 12e:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+}
+ 132:	08 95       	ret
+
+00000134 <TWI_Read_Nack>:
+
+char TWI_Read_Nack()		
+{
+	TWCR=(1<<TWEN)|(1<<TWINT);	
+ 134:	84 e8       	ldi	r24, 0x84	; 132
+ 136:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(!(TWCR &(1<<TWINT))==0);   
+ 13a:	ec eb       	ldi	r30, 0xBC	; 188
+ 13c:	f0 e0       	ldi	r31, 0x00	; 0
+ 13e:	80 81       	ld	r24, Z
+ 140:	88 23       	and	r24, r24
+ 142:	ec f3       	brlt	.-6      	; 0x13e <TWI_Read_Nack+0xa>
+	return TWDR;
+ 144:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+	
+}
+ 148:	08 95       	ret
+
+0000014a <TWI_Stop>:
+void TWI_Stop()
+{
+	TWCR=(1<<TWSTO)|(1<<TWINT)|(1<<TWEN);
+ 14a:	84 e9       	ldi	r24, 0x94	; 148
+ 14c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while((TWCR &(1<<TWSTO)));
+ 150:	ec eb       	ldi	r30, 0xBC	; 188
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	80 81       	ld	r24, Z
+ 156:	84 fd       	sbrc	r24, 4
+ 158:	fd cf       	rjmp	.-6      	; 0x154 <TWI_Stop+0xa>
+}
+ 15a:	08 95       	ret
+
+0000015c <main>:
+
+
+int main(void)
+{
+	
+    TWI_init();
+ 15c:	0e 94 55 00 	call	0xaa	; 0xaa <TWI_init>
+	while (1)
+	{
+		TWI_Start();
+ 160:	0e 94 5e 00 	call	0xbc	; 0xbc <TWI_Start>
+		
+		TWI_Write_Add(0xA0);
+ 164:	80 ea       	ldi	r24, 0xA0	; 160
+ 166:	0e 94 6d 00 	call	0xda	; 0xda <TWI_Write_Add>
+		
+		TWI_Write_Data(data);
+ 16a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 16e:	0e 94 7e 00 	call	0xfc	; 0xfc <TWI_Write_Data>
+		
+		TWI_Stop();
+ 172:	0e 94 a5 00 	call	0x14a	; 0x14a <TWI_Stop>
+		
+		TWI_Start();
+ 176:	0e 94 5e 00 	call	0xbc	; 0xbc <TWI_Start>
+		
+		okunan=TWI_Read_Ack();
+ 17a:	0e 94 8f 00 	call	0x11e	; 0x11e <TWI_Read_Ack>
+ 17e:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <okunan>
+		
+		TWI_Read_Nack();
+ 182:	0e 94 9a 00 	call	0x134	; 0x134 <TWI_Read_Nack>
+			
+		TWI_Stop();			
+ 186:	0e 94 a5 00 	call	0x14a	; 0x14a <TWI_Stop>
+ 18a:	ea cf       	rjmp	.-44     	; 0x160 <main+0x4>
+
+0000018c <_exit>:
+ 18c:	f8 94       	cli
+
+0000018e <__stop_program>:
+ 18e:	ff cf       	rjmp	.-2      	; 0x18e <__stop_program>
